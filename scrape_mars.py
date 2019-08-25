@@ -128,35 +128,24 @@ def mars_hemisphere_images():
   #### I could use a for loop but had to deliver the cup cake by today so all the drama below:
     cerberus=mars_ch[0]
     cerberus_url=cerberus.find('img')['src']
-    cerberus_title=cerberus.find('img')['alt']
-    print(cerberus_title)
-    print(base_url_image+cerberus_url)
-
+    
     schiaparelli=mars_ch[2]
     schiaparelli_url=schiaparelli.find('img')['src']
-    schiaparelli_title=schiaparelli.find('img')['alt']
-    print(schiaparelli_title)
-    print(base_url_image+schiaparelli_url)
-
+    
     syrtis_major=mars_ch[4]
     syrtis_major_url=syrtis_major.find('img')['src']
-    syrtis_major_title=syrtis_major.find('img')['alt']
-    print(syrtis_major_title)
-    print(base_url_image+syrtis_major_url)
-
+    
     valles_marineris=mars_ch[6]
     valles_marineris_url=valles_marineris.find('img')['src']
-    valles_marineris_title=valles_marineris.find('img')['alt']
-    print(valles_marineris_title)
-    print(base_url_image+valles_marineris_url)
-   
-    summary_dict={cerberus_title:base_url_image+cerberus_url, 
-              schiaparelli_title: base_url_image+schiaparelli_url,
-              syrtis_major_title:base_url_image+syrtis_major_url,
-              valles_marineris_title:base_url_image+valles_marineris_title              
-             }
 
-    return(summary_dict)
+    cerberus=base_url_image+cerberus_url
+    schiaparelli=base_url_image+schiaparelli_url
+    syrtis_major=base_url_image+syrtis_major_url
+    valles_marineris=base_url_image+valles_marineris_url
+
+    mars_hemisphere= [cerberus,schiaparelli,syrtis_major, valles_marineris]
+     
+    return(mars_hemisphere)
 
 
 

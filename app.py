@@ -69,6 +69,11 @@ def scrape():
     # Redirect back to home page
     return redirect("/")
 
+@app.route("/hemisphere")
+def hemispshere():
+  destination_data = db.collection.find_one({})   
+  
+  return render_template("mars_hemisphere.html", mars=destination_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
