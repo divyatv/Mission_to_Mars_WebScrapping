@@ -34,7 +34,8 @@ def home():
         for i in x:
             newdf=newdf.append(pd.DataFrame([i]))
         import io
-        newdf=newdf.rename(columns={"Mars": " ", "Mars - Earth Comparison": "Dimensions"})
+        newdf=newdf.rename(columns={"0": " ", "1": "Dimensions"})
+        #newdf=newdf.rename(columns={"Mars": " ", "Mars - Earth Comparison": "Dimensions"})
         newdf=newdf.set_index(['Dimensions'])
         str_io=io.StringIO()
         newdf.to_html(buf=str_io, classes='table table-stripped')
@@ -71,9 +72,13 @@ def scrape():
 
 @app.route("/hemisphere")
 def hemispshere():
-  destination_data = db.collection.find_one({})   
+  destination_data = db.collection.find_one({})
+  elements1=destination_data['mars_hemisphere_images'] [0]
+  elements2=destination_data['mars_hemisphere_images'] [1]
+  elements3=destination_data['mars_hemisphere_images'] [2]
+  elements4=destination_data['mars_hemisphere_images'] [3]
   
-  return render_template("mars_hemisphere.html", mars=destination_data)
+  return render_template("mars_hemisphere.html", a=elements1, b=elements2, c=elements3, d=elements4)
 
 if __name__ == "__main__":
     app.run(debug=True)
