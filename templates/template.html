@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>
+    <title>Web Vizualisation</title>
+     <!-- Declare style sheet and js-->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <title>Home page</title>
+	 <link rel="stylesheet" href="static/stylesheet1.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ 
+</head>
+
+<body>
+<header>
+
+  <!-- navbar-->
+  <div class="bs-example">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <a href="index.html" class="navbar-brand">
+		  <strong>Mission to Mars</strong></a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse"
+           data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+              <div class="navbar-nav ml-auto">
+			    
+                  <a href="http://127.0.0.1:5000/scrape" class="btn btn-outline-success nav-item nav-link active" type="button">Scrape New Data</a>
+				  <a href="mars_hemisphere.html" class="nav-item nav-link active">Mars Hemispheres</a>
+          </div>
+              
+          </div>
+      </nav>
+  </div>
+</header>  
+<main>  
+    <div class="container" style="margin-top:10px">
+        <div class="row">
+            <div class="col-sm-7 mb-3 mb-md-0">
+              <div class="card">
+                  <div class="content-box">
+                <div class="card-body">
+                  <h5 class="card-title">Latest Mars News</h5>
+                  		<hr>   
+                  <h5> {{mars.mars_news_content}}</h5>
+                  <hr>
+                  <p> {{mars.mars_news_title}}</p>
+                  
+                  
+                    </div>
+                 </div>
+              </div>
+            </div>
+		<div class="col-sm-5 mb-3 mb-md-0">
+          <div class="card">
+          <div class="content-box">
+              <h5 class="card-title">Current Weather on Mars</h5>
+			  <hr>
+         <p>{{mars.mars_weather}}</p>
+          
+        </div>
+        </div>    
+      </div>
+			</div>
+
+			<br>
+			
+	<div class="row">
+            <div class="col-sm-7 mb-3 mb-md-0">
+              <div class="card">
+                  <div class="content-box">
+                <div class="card-body">
+                  <h5 class="card-title">Featured Mars Image</h5>
+                  <hr>
+				   <img src={{mars.fullresolimage}}  class="img-fluid img-paragraph float-left mr-2 img" height="500px" width="500px" alt="MARS FULL RESOLUTION">				             
+                  
+                    </div>
+                 </div>
+              </div>
+            </div>	
+			<div class="col-sm-5 mb-3 mb-md-0">
+          <div class="card">
+          <div class="content-box">
+              <h5 class="card-title">Mars Facts</h5>
+{% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+{% endfor %}
+          
+        </div>
+        </div>    
+      </div>
+</div>			
+			
+    
+      <!-- Visualization box-->
+    
+
+    
+   
+    </div>
+      <!-- Fotter section -->
+    </main>
+    <footer class="page-footer   special-color-dark pt-4">
+        <div class="container">      
+                <div style="background-color: #313331; border-top: 8px solid #22a3a3; color: white">
+        <!-- Copyright -->
+        <div class="font-small white footer-copyright text-center py-3">© 2017 Copyright:
+          <a href="https://www.bootcampspot.com/login"> UNC Bootcamp.com</a>
+        </div>
+    </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
