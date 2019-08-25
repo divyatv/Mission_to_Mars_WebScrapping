@@ -29,12 +29,12 @@ def home():
         dict1=destination_data['mars_dataframe']
         import ast
         x=ast.literal_eval(dict1)
-        print(len(x))
+        #print(len(x))
         newdf=pd.DataFrame({})
         for i in x:
             newdf=newdf.append(pd.DataFrame([i]))
         import io
-        newdf=newdf.rename(columns={"0": "Dimensions", "1": " "})
+        newdf=newdf.rename(columns={"Mars": " ", "Mars - Earth Comparison": "Dimensions"})
         newdf=newdf.set_index(['Dimensions'])
         str_io=io.StringIO()
         newdf.to_html(buf=str_io, classes='table table-stripped')
